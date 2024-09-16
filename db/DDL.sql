@@ -43,3 +43,27 @@ create table accounts {
     created_at timestamp with time zone default now(),
     update_at timestamp with time zone default now(),
 };
+
+-- index accounts
+create index idx_type on accounts using btree (type);
+create index idx_balance on accounts using btree (balance);
+create index idx_created_at on accounts using brin (created_at);
+
+-- table currencies
+create table currencies {
+    id bigint primary key generated always as identity,
+    code char(3) unique not null,
+    name varchar(150) not null
+    symbol varchar(150),
+    exchange_rate numeric(15, 6) default 1.0
+    decimal_places int not null,
+    active boolean default true,
+    created_at timestamp with time zone default now(),
+    updated_at timestamp with time zone default now(),
+};
+
+-- index currencies
+create index idx_name on currencies on using btree (name);
+create index idx_symbol on currencies on using btree (symbol);
+create index idx_exchange_rate on currencies on using btree (active, exchange_rate);
+create index idx_active on currencies using btree (active);
