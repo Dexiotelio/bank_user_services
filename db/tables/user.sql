@@ -23,3 +23,7 @@ CREATE TABLE "users" (
     created_at TIMESTAMP WITH ZONE TIME DEFAULT NOW(),
     update_at TIMESTAMP WITH ZONE TIME DEFAULT NOW(),
 )
+
+CREATE INDEX idx_users_email on 'user' (email);
+CREATE INDEX idx_users_first_name on 'users' (first_name);
+CREATE INDEX idx_users_last_name on 'users' (last_name);
