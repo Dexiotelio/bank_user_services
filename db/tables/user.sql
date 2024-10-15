@@ -19,11 +19,11 @@ CREATE TABLE "users" (
     last_connection TIMESTAMP WITH ZONE,
     blackout_date TIMESTAMP WITH ZONE,
     failed_attempts INT DEFAULT 0,
-    last_failed_attempts TIMESTAMP WITH ZONE
-    created_at TIMESTAMP WITH ZONE TIME DEFAULT NOW(),
-    update_at TIMESTAMP WITH ZONE TIME DEFAULT NOW(),
+    last_failed_attempts TIMESTAMP WITH ZONE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    update_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
 )
 
-CREATE INDEX idx_users_email on 'user' (email);
+CREATE INDEX idx_users_email on 'users' (email);
 CREATE INDEX idx_users_first_name on 'users' (first_name);
 CREATE INDEX idx_users_last_name on 'users' (last_name);
