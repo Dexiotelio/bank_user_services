@@ -30,7 +30,6 @@ CREATE TABLE customer (
     document_number VARCHAR(50) NOT NULL UNIQUE,
     civil_status civil_status,
     address VARCHAR(100) NOT NULL,
-    nationality VARCHAR(100) NOT NULL,
     date_born DATE NOT NULL CHECK (date_born <= CURRENT_DATE - INTERVAL '18 years'),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     update_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
@@ -40,6 +39,5 @@ CREATE INDEX idx_customer_email ON customer (email);
 CREATE INDEX idx_customer_gender ON customer (gender);
 CREATE INDEX idx_customer_type_document ON customer (type_document);
 CREATE INDEX idx_customer_civil_status ON customer (civil_status);
-CREATE INDEX idx_customer_nationality ON customer (nationality);
 CREATE INDEX idx_customer_date_born ON customer (date_born);
 CREATE INDEX idz_customer_age_gender_civil_status ON customer (date_born, gender, civil_status);
