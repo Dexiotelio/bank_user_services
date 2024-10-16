@@ -1,4 +1,5 @@
 CREATE TYPE type_user as ENUM ('client', 'admin', 'employee');
+CREATE TYPE gender AS ENUM ('male', 'female', 'other');
 CREATE TYPE user_status as ENUM ('active',
     'inactive',
      'blocked',
@@ -13,6 +14,8 @@ CREATE TABLE "users" (
     last_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(300) NOT NULL,
+    phone VARCHAR(15) NOT NULL UNIQUE,
+    gender gender,
     type_user type_user NOT NULL,
     user_status user_status NOT NULL DEFAULT 'pending verification',
     email_verified BOOLEAN DEFAULT FALSE,
