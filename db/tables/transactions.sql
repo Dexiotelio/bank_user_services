@@ -4,7 +4,7 @@ CREATE TABLE Transactions (
     transaction_type VARCHAR(50),
     amount DECIMAL(15, 2),
     currency_type VARCHAR(10),
-    transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    transaction_date TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
     description TEXT,
     transaction_status VARCHAR(20),
     transaction_reference VARCHAR(50),
