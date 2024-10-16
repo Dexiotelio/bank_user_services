@@ -1,9 +1,9 @@
-CREATE OR REPLACE FUNCTION user_exists(p_email VARCHAR)
+CREATE OR REPLACE FUNCTION customer_exists(p_email VARCHAR)
 RETURN BOOLEAN AS &&
 BEGIN
     RETURN SELECT EXISTS (
         SELECT 1
-        FROM 'users'
+        FROM customer
         WHERE email = p_email
     );
 END;
