@@ -1,0 +1,3 @@
+CREATE TRIGGER check_email
+BEFORE INSERT OR UPDATE ON customer
+FOR EACH ROW EXECUTE FUNCTION validate_email();
